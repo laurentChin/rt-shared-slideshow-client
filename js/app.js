@@ -20,7 +20,7 @@
     function upload(file) {
         var xhr = new XMLHttpRequest();
         var formData = new FormData();
-        xhr.open('POST', 'http://' + window.location.hostname + ':3000/upload', true);
+        xhr.open('POST', 'http://' + window.location.hostname + ':3000/uploads', true);
 
         formData.append('picture', file);
         xhr.send(formData);
