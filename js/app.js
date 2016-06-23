@@ -4,7 +4,7 @@
     var picturesContainer = document.querySelector('.pictures');
     var slideshow = document.querySelector('#slideshow img');
     var currentIndex = 0;
-    var socket = io('http://localhost:3000');
+    var socket = io('http://' + window.location.hostname + ':3000');
     var playing = false;
     var fullsreenBtn = document.getElementById('fullscreen-btn');
 
