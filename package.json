@@ -1,0 +1,25 @@
+{
+  "name": "rt-shared-slideshow-client",
+  "version": "1.0.0",
+  "description": "Client side of xthe real time shared slideshow project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laurentChin/rt-shared-slideshow-client.git"
+  },
+  "keywords": [
+    "real-time",
+    "websocket",
+    "ecma2015",
+    "fileAPI"
+  ],
+  "author": "Laurent Janet <laurent.janet@backelite.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laurentChin/rt-shared-slideshow-client/issues"
+  },
+  "homepage": "https://github.com/laurentChin/rt-shared-slideshow-client#readme"
+}
