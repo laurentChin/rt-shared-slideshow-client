@@ -7,6 +7,7 @@
     var socket = io('http://' + window.location.hostname + ':3000');
     var playing = false;
     var fullsreenBtn = document.getElementById('fullscreen-btn');
+    var counter = document.getElementById('counter');
 
     fileInput.addEventListener('change', function(){
         upload(fileInput.files[0]);
@@ -46,6 +47,7 @@
         slideshow.src = window.location.origin + '/uploads/' + pictures[currentIndex];
 
         currentIndex = currentIndex + 1;
+        counter.innerHTML = currentIndex + ' / ' + pictures.length;
 
         if(currentIndex == pictures.length) {
             currentIndex = 0;
