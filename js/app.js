@@ -1,20 +1,34 @@
 (function(){
     var fileInput = document.getElementById('file');
-    var previewContainer = document.getElementById('preview');
+    var pictures = [];
+    var picturesContainer = document.querySelector('.pictures');
 
     fileInput.addEventListener('change', function(){
-        preview(fileInput.files[0]);
+        upload(fileInput.files[0]);
     });
 
-    function preview(file) {
-        var reader = new FileReader();
+    listPictures();
 
-        reader.onload = function(event) {
-            previewContainer.src = event.target.result;
-            upload(file);
-        };
+    function listPictures() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://' + window.location.hostname + ':3000/uploads');
+        xhr.send();
 
-        reader.readAsDataURL(file);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                pictures = JSON.parse(xhr.responseText);
+                loadPreviews(pictures);
+            }
+        }
+    }
+
+    function loadPreviews(pictures) {
+        pictures.forEach(function(picture){
+            var img = document.createElement('img');
+            img.src = window.location.origin + '/uploads/' + picture;
+
+            picturesContainer.appendChild(img);
+        });
     }
 
     function upload(file) {
