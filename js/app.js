@@ -4,6 +4,8 @@
     var picturesContainer = document.querySelector('.pictures');
     var slideshow = document.querySelector('#slideshow img');
     var currentIndex = 0;
+    var socket = io('http://localhost:3000');
+    var playing = false;
 
     fileInput.addEventListener('change', function(){
         upload(fileInput.files[0]);
@@ -11,7 +13,16 @@
 
     listPictures();
 
+    socket.on('upload', function(event){
+        pictures.push(event.path);
+        appendPreview(event.path);
+        if(!playing) {
+            initLoop();
+        }
+    });
+
     function initLoop() {
+        playing = true;
         iterate();
         slideshow.onload = function() {
             setTimeout(iterate, 5000);
@@ -36,19 +47,25 @@
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 pictures = JSON.parse(xhr.responseText);
-                loadPreviews(pictures);
-                initLoop();
+                if(pictures.length > 0) {
+                    loadPreviews(pictures);
+                    initLoop();
+                }
             }
         }
     }
 
     function loadPreviews(pictures) {
         pictures.forEach(function(picture){
-            var img = document.createElement('img');
-            img.src = window.location.origin + '/uploads/' + picture;
-
-            picturesContainer.appendChild(img);
+           appendPreview(picture);
         });
+    }
+
+    function appendPreview(picture) {
+        var img = document.createElement('img');
+        img.src = window.location.origin + '/uploads/' + picture;
+
+        picturesContainer.appendChild(img);
     }
 
     function upload(file) {
