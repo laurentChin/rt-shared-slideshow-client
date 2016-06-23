@@ -2,12 +2,31 @@
     var fileInput = document.getElementById('file');
     var pictures = [];
     var picturesContainer = document.querySelector('.pictures');
+    var slideshow = document.querySelector('#slideshow img');
+    var currentIndex = 0;
 
     fileInput.addEventListener('change', function(){
         upload(fileInput.files[0]);
     });
 
     listPictures();
+
+    function initLoop() {
+        iterate();
+        slideshow.onload = function() {
+            setTimeout(iterate, 5000);
+        }
+    }
+
+    function iterate() {
+        slideshow.src = window.location.origin + '/uploads/' + pictures[currentIndex];
+
+        currentIndex = currentIndex + 1;
+
+        if(currentIndex == pictures.length) {
+            currentIndex = 0;
+        }
+    }
 
     function listPictures() {
         var xhr = new XMLHttpRequest();
@@ -18,6 +37,7 @@
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 pictures = JSON.parse(xhr.responseText);
                 loadPreviews(pictures);
+                initLoop();
             }
         }
     }
