@@ -1,6 +1,6 @@
 {
     "port": 8181,
-    "files" : ["*.{html}", "js/*.js", , "css/*.css"],
+    "files" : ["*.{html}", "js/*.js", "css/*.css"],
     "server" : {
         "baseDir" : "."
     }
