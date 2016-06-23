@@ -107,3 +107,14 @@ img {
     height: 200px;
     margin: 0 20px 20px 0;
 }
+
+@media (max-width: 400px) {
+    .pictures {
+        flex-direction: column;
+    }
+
+    .pictures img {
+        height: auto;
+        margin-right: 0;
+    }
+}
