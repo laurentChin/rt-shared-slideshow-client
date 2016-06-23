@@ -47,12 +47,45 @@ table {
     border-spacing: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     width: 100vw;
+    font-family: arial;
+}
+
+.toolbar {
+    position: fixed;
+    height: 40px;
+    padding: 5px 10px;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    background-color: #fff;
+}
+
+.toolbar span {
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    background-color: #1a2c51;
+    color: #fff;
 }
 
 img {
     max-width: 100%;
+}
+
+#slideshow {
+    margin-top: 40px;
+}
+
+#slideshow img {
+    object-fit: contain;
 }
 
 .pictures {

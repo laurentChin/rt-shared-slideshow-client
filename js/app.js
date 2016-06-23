@@ -6,6 +6,7 @@
     var currentIndex = 0;
     var socket = io('http://localhost:3000');
     var playing = false;
+    var fullsreenBtn = document.getElementById('fullscreen-btn');
 
     fileInput.addEventListener('change', function(){
         upload(fileInput.files[0]);
@@ -18,6 +19,18 @@
         appendPreview(event.path);
         if(!playing) {
             initLoop();
+        }
+    });
+
+    fullsreenBtn.addEventListener('click', function(){
+        if(slideshow.requestFullscreen) {
+            slideshow.requestFullscreen();
+        } else if(slideshow.mozRequestFullScreen) {
+            slideshow.mozRequestFullScreen();
+        } else if(slideshow.webkitRequestFullscreen) {
+            slideshow.webkitRequestFullscreen();
+        } else if(slideshow.msRequestFullscreen) {
+            slideshow.msRequestFullscreen();
         }
     });
 
