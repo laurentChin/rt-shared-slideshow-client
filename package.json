@@ -4,7 +4,7 @@
   "description": "Client side of xthe real time shared slideshow project",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "lite-server"
   },
   "repository": {
     "type": "git",
