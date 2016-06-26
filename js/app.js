@@ -86,14 +86,15 @@
     function upload(file) {
         var xhr = new XMLHttpRequest();
         var formData = new FormData();
+        var loader = document.querySelector('.loader');
         xhr.open('POST', 'http://' + window.location.hostname + ':3000/uploads', true);
 
         formData.append('picture', file);
         xhr.send(formData);
-
+        loader.classList.add('visible');
         xhr.onreadystatechange = function() {
             if (xhr.status === XMLHttpRequest.DONE) {
-                // TODO handle upload success
+                loader.classList.remove('visible');
             }
         }
     }

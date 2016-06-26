@@ -55,6 +55,7 @@ table {
 body {
     font-family: 'Open Sans', sans-serif;
     width: 100vw;
+    position: relative;
 }
 
 .toolbar {
@@ -122,6 +123,21 @@ img {
         width:100%;
         margin-right: 0;
     }
+}
+
+.loader {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(255, 255, 255, .8);
+    z-index: 3;
+    display: none;
+}
+
+.loader.visible {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .credits {
