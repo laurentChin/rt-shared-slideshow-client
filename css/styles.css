@@ -52,6 +52,7 @@ table {
 }
 
 body {
+
     width: 100vw;
     font-family: arial;
 }
@@ -59,13 +60,15 @@ body {
 .toolbar {
     position: fixed;
     height: 40px;
-    padding: 5px 10px;
+    padding:  5px 10px 5px 40px;
+    background-image: url('../img/upload.png') no-repeat 5px 50%;
+    background-size: 30px 30px;
+    background-color: rgba(255,255,255,.8);
     top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    background-color: rgba(255,255,255,.8);
     z-index: 1;
 }
 
@@ -81,10 +84,6 @@ body {
     display: block;
 }
 
-img {
-    max-width: 100%;
-}
-
 #slideshow {
     margin: 40px 0;
     width: 100vw;
@@ -97,24 +96,35 @@ img {
     object-fit: contain;
 }
 
-.pictures {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+@media (max-width: 700px) {
+    #fullscreen-btn,
+    #counter,
+    #slideshow {
+        display: none;
+    }
 }
+
+
+img {
+    max-width: 100%;
+}
+
 
 .pictures img {
     height: 200px;
+    width: auto;
     margin: 0 20px 20px 0;
+    display: inline-block;
 }
-
 @media (max-width: 400px) {
-    .pictures {
-        flex-direction: column;
-    }
-
     .pictures img {
         height: auto;
+        width:100%;
         margin-right: 0;
     }
+}
+
+.credits {
+    padding: 5px 10px 5px 10px;
+    font-size: 12px;
 }

@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <title>Real-Time shared slideshow</title>
     <link rel="stylesheet" href="css/styles.css"/>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
-    <section class="toolbar">
-        <input type="file" id="file">
-        <span id="counter"></span>
-        <span id="fullscreen-btn">Full screen</span>
-    </section>
-    <div id="slideshow">
-        <img/>
-    </div>
-    <div class="pictures"></div>
+<section class="toolbar">
+    <input type="file" id="file">
+    <span id="counter"></span>
+    <span id="fullscreen-btn">Full screen</span>
+</section>
+<div id="slideshow">
+    <img/>
+</div>
+<div class="pictures"></div>
 
-    <script src="js/socket.io.js"></script>
-    <script src="js/app.js"></script>
+
+<div class="credits">
+    By Laurent Janet & l'équipe WEB
+</div>
+<script src="js/socket.io.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
