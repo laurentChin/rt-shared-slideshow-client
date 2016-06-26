@@ -44,7 +44,7 @@
     }
 
     function iterate() {
-        slideshow.src = window.location.origin + '/uploads/' + pictures[currentIndex];
+        slideshow.src = window.location.origin + '/uploads/' + pictures[currentIndex].replace(/_thumb/, '');
 
         currentIndex = currentIndex + 1;
         counter.innerHTML = currentIndex + ' / ' + pictures.length;
